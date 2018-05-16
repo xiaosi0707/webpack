@@ -1,4 +1,5 @@
 /*Created by SmallFour on 2018/5/16*/
+const webpack = require('webpack');
 module.exports = {
     devtool: 'eval-source-map',
     entry: __dirname + '/app/main.js', //唯一入口文件
@@ -36,5 +37,8 @@ module.exports = {
                 ]
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.BannerPlugin('smallFour所有，翻版必究')
+    ]
 }
