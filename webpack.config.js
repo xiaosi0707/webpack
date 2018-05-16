@@ -27,7 +27,11 @@ module.exports = {
                         loader: 'style-loader'
                     },
                     {
-                        loader: 'css-loader'
+                        loader: 'css-loader',
+                        options: {
+                            modules: true, // 指定启用css modules
+                            localIdentName: '[name]__[local]--[hash:base64:5]' // 指定css的类名格式
+                        }
                     }
                 ]
             }
