@@ -10,5 +10,16 @@ module.exports = {
         contentBase: './public', // 服务器指向的目录
         historyApiFallback: true,
         inline: true
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                use: {
+                    loader: 'babel-loader'
+                },
+                exclude: /node_modules/
+            }
+        ]
     }
 }
