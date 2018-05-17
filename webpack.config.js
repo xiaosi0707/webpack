@@ -1,7 +1,7 @@
 /*Created by SmallFour on 2018/5/16*/
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 module.exports = {
     devtool: 'eval-source-map',
     entry: __dirname + '/app/main.js', //唯一入口文件
@@ -47,7 +47,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: __dirname + "/app/index.tmpl.html"//new 一个这个插件的实例，并传入相关的参数
         }),
-        new webpack.HotModuleReplacementPlugin()//热加载插件
+        new webpack.HotModuleReplacementPlugin(),//热加载插件
+        new CleanWebpackPlugin('build/*.*', {
+            root: __dirname
+        })
 
     ]
 }
