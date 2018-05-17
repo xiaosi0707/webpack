@@ -1,12 +1,13 @@
 /*Created by SmallFour on 2018/5/16*/
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     devtool: 'eval-source-map',
     entry: __dirname + '/app/main.js', //唯一入口文件
     output: {
         path: __dirname + '/build', // 打包后文件存放地方
-        filename: 'bundle.js'
+        filename: 'bundle-[hash].js' // hash缓存
     },
     devServer: {
         contentBase: './build', // 服务器指向的目录
@@ -33,6 +34,7 @@ module.exports = {
                         loader: 'css-loader',
                         options: {
                             modules: true, // 指定启用css modules
+                            minimize: true,
                             localIdentName: '[name]__[local]--[hash:base64:5]' // 指定css的类名格式
                         }
                     }
@@ -46,5 +48,6 @@ module.exports = {
             template: __dirname + "/app/index.tmpl.html"//new 一个这个插件的实例，并传入相关的参数
         }),
         new webpack.HotModuleReplacementPlugin()//热加载插件
+
     ]
 }

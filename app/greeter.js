@@ -4,5 +4,6 @@ module.exports = () => {
     let greet = document.createElement('div');
     greet.setAttribute('class', styles.test) // 设置class -> greeter__test--1F6gy
     greet.textContent = config.greetText
+    console.log(2);
     return greet;
 }
